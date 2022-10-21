@@ -2,8 +2,8 @@ export const theme = {
   colors: {
     backGroundColor: '#000000',
     secondaryBackGroundColor: '#1A1A1A',
-    thrdBackGroundColor: '#ECF1F3',
-    primaryText: '#E2B616',
+    thrdBackGroundColor: '#252525',
+    primaryText: '#FFFFFF',
     secondaryText: '#E2B616',
     thrdText: '#5799EF',
     hoverBtnColor: '#252525',
@@ -11,7 +11,7 @@ export const theme = {
     // pixaBayColor: '#444444',
   },
   spacing: value => `${4 * value}px`,
-  space: [0, 2, 4, 8, 16, 32, 64, 128, 256],
+  space: [0, 2, 4, 8, 12, 32, 64, 128, 256],
   fonts: {
     btn: 'system-ui, sans-serif',
   },
