@@ -6,13 +6,13 @@ import MoviesPage from 'pages/MoviesPage/MoviesPage';
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Layout />}>
+      <Route end path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
-        <Route path="movies" element={<MoviesPage />}>
-          <Route path=":movieId" element={<d />}>
-            <Route path="cast" element={<div>Cast</div>} />
-            <Route path="cast" element={<div>Reviews </div>} />
-          </Route>
+        <Route path="movies" element={<MoviesPage />} />
+        <Route path="movies/:movieId" element={<div>movieId</div>}>
+          <Route path="cast" element={<div>Cast</div>} />
+          <Route path="reviews" element={<div>Reviews </div>} />
+
           {/* вложенный маршрут + в нем еще вложенные маршруты*/}
         </Route>
 

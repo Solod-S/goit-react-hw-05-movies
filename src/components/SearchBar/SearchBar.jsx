@@ -3,15 +3,12 @@ import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { fetchSearchMovies } from 'services/Api';
 import {
-  SearchBarHeader,
+  SearchBarWrapper,
   SearchBarForm,
   SearchBarButton,
   SearchBarInput,
-  SearchBarLogo,
-  SearchBarLinkLogo,
 } from './Searchbar.styled';
 import { IoIosSearch } from 'react-icons/io';
-import logo from '../../img/Pixabay-logo.png';
 
 function Searchbar({ setSearchMovies }) {
   const [searchQuery, setSearchQuery] = useState('');
@@ -42,8 +39,6 @@ function Searchbar({ setSearchMovies }) {
         })
       );
 
-      console.log(videoData);
-
       setSearchMovies(videoData);
     }
 
@@ -55,7 +50,7 @@ function Searchbar({ setSearchMovies }) {
   }, [searchQuery, setSearchMovies]);
 
   return (
-    <>
+    <SearchBarWrapper>
       <SearchBarForm onSubmit={handleSubeventmit}>
         <SearchBarInput
           type="text"
@@ -64,13 +59,13 @@ function Searchbar({ setSearchMovies }) {
           name="searchQuery"
           //   value={searchQuery}
           //   onChange={handleNameChange}
-          placeholder="Search images and photos"
+          placeholder="Search movies"
         />
         <SearchBarButton type="submit">
           <IoIosSearch size={18} fill="#444444" />
         </SearchBarButton>
       </SearchBarForm>
-    </>
+    </SearchBarWrapper>
   );
 }
 

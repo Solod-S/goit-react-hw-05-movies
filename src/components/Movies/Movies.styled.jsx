@@ -30,6 +30,7 @@ export const MoviesLink = styled(NavLink)`
   box-shadow: 5px 5px 5px ${p => p.theme.colors.backGroundColor};
   transition: all 0.25s;
   &:hover {
+    z-index: 2;
     transform: scale(1.05);
     box-shadow: 5px 5px 5px ${p => p.theme.colors.backGroundColor};
   }

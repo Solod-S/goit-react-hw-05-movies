@@ -2,10 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { HomePageTitle } from './HomePage.styled';
 import { fetchTrendingMovies } from 'services/Api';
-// import { MoviesList } from 'components/MoviesList/MoviesList';
 import { Box } from 'components/Box/Box';
-// import { Box } from 'utils/Box';
-// import { StyledTitle } from './HomePage.styled';
 import Movies from 'components/Movies/Movies';
 
 const HomePage = () => {

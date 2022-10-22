@@ -4,12 +4,11 @@ const options = {
   query: '',
   include_adult: false,
 };
-// const { key, query, include_adult } = options;
+
 axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
 export const fetchTrendingMovies = async () => {
-  //   const response = await axios.get(`trending/movie/day?api_ke=${key}`);
   const response = await axios.get('/trending/movie/day', { params: options });
-  // return response.data.data;
+
   return response;
 };
 
@@ -21,7 +20,6 @@ export const fetchSearchMovies = async query => {
       include_adult: false,
     },
   });
-  // return response.data.data;
   return response;
 };
 

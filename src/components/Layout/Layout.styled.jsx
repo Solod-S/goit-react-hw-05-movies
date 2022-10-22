@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const LinkNav = styled(NavLink)`
+  color: ${p => p.theme.colors.primaryText};
   padding: ${p => p.theme.space[4]}px;
   border-radius: ${p => p.theme.radii.normal};
   text-decoration: none;
@@ -9,7 +10,6 @@ export const LinkNav = styled(NavLink)`
   font-family: ${p => p.theme.fonts.btn};
   font-size: ${p => p.theme.fontSizes.m};
 
-  color: ${p => p.theme.colors.primaryText};
   transition: color 0.25s, background-color 0.25s;
   &:not(:last-child) {
     margin-right: ${p => p.theme.space[2]}px;
@@ -35,7 +35,7 @@ export const Header = styled.header`
   background-color: ${p => p.theme.colors.secondaryBackGroundColor};
 `;
 
-export const Nav = styled.nav`
+export const Navigation = styled.nav`
   display: flex;
   align-items: baseline;
   justify-content: center;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   MoviesListWrapper,
   MoviesList,
@@ -35,3 +36,13 @@ const Movies = ({ movies }) => {
   );
 };
 export default Movies;
+Movies.propTypes = {
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      poster: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      vote_average: PropTypes.number.isRequired,
+    })
+  ).isRequired,
+};

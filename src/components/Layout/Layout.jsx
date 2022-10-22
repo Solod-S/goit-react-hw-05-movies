@@ -1,17 +1,23 @@
-// import { Suspense } from 'react';
-import { Outlet, Link } from 'react-router-dom';
-import { Header, LinkNav, Nav } from './Layout.styled';
-
+import { Outlet } from 'react-router-dom';
+import { Header, LinkNav, Navigation } from './Layout.styled';
+import { Suspense } from 'react';
 const Layout = () => {
   return (
     <>
       <Header>
-        <Nav>
-          <LinkNav to="/">Home</LinkNav>
+        <Navigation>
+          {/* <LinkNav exact to="/">
+            Home
+          </LinkNav> */}
+          <LinkNav end={true} to="/" exact>
+            Homepage
+          </LinkNav>
           <LinkNav to="/movies">Movies</LinkNav>
-        </Nav>
+        </Navigation>
       </Header>
-      <Outlet />
+      <Suspense fallback={<div>Loading page...</div>}>
+        <Outlet />
+      </Suspense>
     </>
   );
 };
