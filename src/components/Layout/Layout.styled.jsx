@@ -26,6 +26,7 @@ export const LinkNav = styled(NavLink)`
 `;
 
 export const Header = styled.header`
+  /* border-bottom: 1px solid ${p => p.theme.colors.secondaryText}; */
   display: flex;
   align-items: center;
   justify-content: center;
