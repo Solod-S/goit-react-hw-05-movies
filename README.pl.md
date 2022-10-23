@@ -1,4 +1,5 @@
-**Read in other languages: [rosyjski](README.md), [polski](README.pl.md).**
+**Read in other languages: [rosyjski](README.md), [polski](README.pl.md).** //
+"homepage": "https://Solod-S.github.io/goit-react-hw-05-movies/,",
 
 # React homework template
 

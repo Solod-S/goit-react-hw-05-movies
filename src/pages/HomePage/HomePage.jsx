@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { HomePageTitle } from './HomePage.styled';
+import { Title } from './HomePage.styled';
 import { fetchTrendingMovies } from 'services/Api';
 import { Box } from 'components/Box/Box';
 import Movies from 'components/Movies/Movies';
@@ -33,7 +33,7 @@ const HomePage = () => {
 
   return (
     <Box p="30px 0">
-      <HomePageTitle>Trending Today</HomePageTitle>
+      <Title>Trending Today</Title>
       {moviesList && <Movies movies={moviesList} />}
     </Box>
   );
