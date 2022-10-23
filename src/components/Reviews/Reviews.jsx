@@ -24,7 +24,6 @@ const Reviews = () => {
           display="flex"
           flexDirection="column"
           gridGap={3}
-          // bg="secondaryBackGroundColor"
           color="white"
           maxWidth="1300px"
           m="auto"
