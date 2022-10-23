@@ -1,23 +1,28 @@
 import React from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
+import { lazy } from 'react';
 import Layout from 'components/Layout/Layout';
-import HomePage from 'pages/HomePage/HomePage';
-import MoviesPage from 'pages/MoviesPage/MoviesPage';
+
+import Cast from 'components/Cast/Cast';
+import Reviews from 'components/Reviews/Reviews';
+const HomePage = lazy(() => import('pages/HomePage/HomePage'));
+// import HomePage from 'pages/HomePage/HomePage';
+const MoviesPage = lazy(() => import('pages/MoviesPage/MoviesPage'));
+// import MoviesPage from 'pages/MoviesPage/MoviesPage';
+const MovieDetailPage = lazy(() => import('pages/MovieDetail/MovieDetailPage'));
+// import MovieDetailPage from 'pages/MovieDetail/MovieDetailPage';
+
 function App() {
   return (
     <Routes>
       <Route end path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
         <Route path="movies" element={<MoviesPage />} />
-        <Route path="movies/:movieId" element={<div>movieId</div>}>
-          <Route path="cast" element={<div>Cast</div>} />
-          <Route path="reviews" element={<div>Reviews </div>} />
-
-          {/* вложенный маршрут + в нем еще вложенные маршруты*/}
+        <Route path="movies/:movieId" element={<MovieDetailPage />}>
+          <Route path="cast" element={<Cast />} />
+          <Route path="reviews" element={<Reviews />} />
         </Route>
-
         <Route path="*" element={<Navigate to="/" replace />} />
-        {/* Если пользователь зашел по несуществующему маршруту, попадет на домашнюю страницу. */}
       </Route>
     </Routes>
   );

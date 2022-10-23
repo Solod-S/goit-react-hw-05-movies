@@ -22,6 +22,7 @@ export const SearchBarWrapper = styled.div`
   content: '';
   background-size: cover;
   background-repeat: no-repeat;
+  border-radius: ${p => p.theme.radii.normal};
 `;
 export const SearchBarForm = styled.form`
   display: flex;

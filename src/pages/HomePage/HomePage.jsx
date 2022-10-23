@@ -11,7 +11,7 @@ const HomePage = () => {
     async function fetch() {
       const videoResponse = await fetchTrendingMovies();
       const allVideoData = videoResponse.data.results;
-      console.log(allVideoData);
+
       const videoData = allVideoData.map(
         ({ id, title, poster_path: poster, vote_average }) => ({
           id,
@@ -20,8 +20,6 @@ const HomePage = () => {
           vote_average,
         })
       );
-
-      console.log(videoData);
 
       setMoviesList(videoData);
     }

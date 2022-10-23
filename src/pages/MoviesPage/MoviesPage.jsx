@@ -5,7 +5,6 @@ import Movies from 'components/Movies/Movies';
 
 const MoviesPage = () => {
   const [searchMoviesResult, setSearchMoviesResult] = useState([]);
-  console.log(`получили`, searchMoviesResult);
 
   return (
     <>

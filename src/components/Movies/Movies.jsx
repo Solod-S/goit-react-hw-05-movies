@@ -10,22 +10,22 @@ import {
   MoviesRating,
   IMDBicon,
 } from './Movies.styled';
-
+import { useLocation } from 'react-router-dom';
 const Movies = ({ movies }) => {
-  console.log(`in movies`, movies);
+  const location = useLocation();
   return (
     <MoviesListWrapper>
       <MoviesList>
-        {movies.map(movie => (
-          <li key={movie.id}>
-            <MoviesLink>
+        {movies.map(({ id, poster, title, vote_average }) => (
+          <li key={id}>
+            <MoviesLink to={`/movies/${id}`} state={{ from: location }}>
               <MoviesImageWrapper>
-                <MoviesImage src={movie.poster} alt={movie.title} />
+                <MoviesImage src={poster} alt={title} />
               </MoviesImageWrapper>
               <MoviesContentWrapper>
-                <h1>{movie.title}</h1>
-                <MoviesRating movieRating={Math.round(movie.vote_average)}>
-                  <IMDBicon size={22} /> {Math.round(movie.vote_average)}
+                <h1>{title}</h1>
+                <MoviesRating movieRating={Math.round(vote_average)}>
+                  <IMDBicon size={22} /> {Math.round(vote_average)}
                 </MoviesRating>
               </MoviesContentWrapper>
             </MoviesLink>

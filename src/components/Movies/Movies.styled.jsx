@@ -7,8 +7,6 @@ export const IMDBicon = styled(SiImdb)`
 `;
 export const MoviesListWrapper = styled.div`
   max-width: 1300px;
-  display: flex;
-  flex-direction: column;
 
   margin-left: auto;
   margin-right: auto;

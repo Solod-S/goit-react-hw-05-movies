@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { fetchSearchMovies } from 'services/Api';
@@ -9,27 +9,31 @@ import {
   SearchBarInput,
 } from './Searchbar.styled';
 import { IoIosSearch } from 'react-icons/io';
+import { useSearchParams } from 'react-router-dom';
 
 function Searchbar({ setSearchMovies }) {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useSearchParams();
+
+  const currentQuery = searchQuery.get('query') ?? '';
 
   const handleSubeventmit = event => {
     event.preventDefault();
     const searcForm = event.currentTarget;
     const inputQuery = searcForm.elements.searchQuery.value;
-    setSearchQuery(inputQuery);
+
+    setSearchQuery({ query: inputQuery });
     searcForm.reset();
   };
 
   useEffect(() => {
-    if (!searchQuery) {
+    if (!currentQuery) {
       return;
     }
     async function fetch() {
-      const videoResponse = await fetchSearchMovies(searchQuery);
-      console.log(videoResponse);
+      const videoResponse = await fetchSearchMovies(currentQuery);
+
       const allVideoData = videoResponse.data.results;
-      console.log(allVideoData);
+
       const videoData = allVideoData.map(
         ({ id, title, poster_path: poster, vote_average }) => ({
           id,
@@ -47,7 +51,7 @@ function Searchbar({ setSearchMovies }) {
     } catch (error) {
       console.log(error, `Попробуйте перезагрузить страницу`);
     }
-  }, [searchQuery, setSearchMovies]);
+  }, [currentQuery, setSearchMovies]);
 
   return (
     <SearchBarWrapper>
@@ -57,8 +61,6 @@ function Searchbar({ setSearchMovies }) {
           autoComplete="off"
           autoFocus
           name="searchQuery"
-          //   value={searchQuery}
-          //   onChange={handleNameChange}
           placeholder="Search movies"
         />
         <SearchBarButton type="submit">
